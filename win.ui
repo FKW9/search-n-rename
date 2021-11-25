@@ -20,12 +20,15 @@
       <string>Parameters</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="checkMATCH">
+      <item row="2" column="1">
+       <widget class="QCheckBox" name="checkRENAME">
         <property name="text">
-         <string>match case</string>
+         <string>rename file names</string>
         </property>
        </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineREPLACE"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_2">
@@ -34,20 +37,17 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="checkMATCH">
+        <property name="text">
+         <string>match case</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
          <string>Search for:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="lineREPLACE"/>
-      </item>
-      <item row="2" column="1">
-       <widget class="QCheckBox" name="checkRENAME">
-        <property name="text">
-         <string>rename file names</string>
         </property>
        </widget>
       </item>
@@ -108,7 +108,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="1" column="0" colspan="3">
-       <widget class="QLineEdit" name="lineCUSTOM">
+       <widget class="QLineEdit" name="sCustom">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -127,7 +127,7 @@
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="QCheckBox" name="checkCUSTOM">
+       <widget class="QCheckBox" name="cCustom">
         <property name="text">
          <string>custom</string>
         </property>
@@ -144,21 +144,21 @@
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="QCheckBox" name="checkTXT">
+       <widget class="QCheckBox" name="cTxt">
         <property name="text">
          <string>.txt</string>
         </property>
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="QCheckBox" name="checkCSV">
+       <widget class="QCheckBox" name="cCsv">
         <property name="text">
          <string>.csv</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="checkTSV">
+       <widget class="QCheckBox" name="cTsv">
         <property name="text">
          <string>.tsv</string>
         </property>
@@ -188,17 +188,31 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="btnSEARCHnREPLACE">
-     <property name="text">
-      <string>Search and Replace!</string>
-     </property>
-     <property name="default">
-      <bool>true</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="btnSEARCHnREPLACE">
+       <property name="text">
+        <string>Search and Replace</string>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSEARCH">
+       <property name="text">
+        <string>Search</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QPlainTextEdit" name="textLOG">
@@ -226,18 +240,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>checkCUSTOM</sender>
+   <sender>cCustom</sender>
    <signal>toggled(bool)</signal>
-   <receiver>lineCUSTOM</receiver>
+   <receiver>sCustom</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>233</x>
-     <y>93</y>
+     <x>278</x>
+     <y>259</y>
     </hint>
     <hint type="destinationlabel">
-     <x>137</x>
-     <y>92</y>
+     <x>156</x>
+     <y>260</y>
     </hint>
    </hints>
   </connection>
@@ -245,7 +259,7 @@
    <sender>btnPATH</sender>
    <signal>clicked()</signal>
    <receiver>Window</receiver>
-   <slot>get_path()</slot>
+   <slot>ask_path()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>262</x>
@@ -264,8 +278,8 @@
    <slot>search_and_replace()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>184</x>
-     <y>320</y>
+     <x>145</x>
+     <y>323</y>
     </hint>
     <hint type="destinationlabel">
      <x>277</x>
@@ -273,9 +287,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnSEARCH</sender>
+   <signal>clicked()</signal>
+   <receiver>Window</receiver>
+   <slot>search()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>235</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>293</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>get_path()</slot>
+  <slot>ask_path()</slot>
   <slot>search_and_replace()</slot>
+  <slot>search()</slot>
  </slots>
 </ui>
