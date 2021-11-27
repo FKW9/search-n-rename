@@ -1,7 +1,12 @@
 import sys, os, re
+
+from typing import List
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QFileDialog, QWidget
 
+"""
+Small UI program to (recursively) search a folder for files which fit a certain pattern and replace text in it (also the filename itself).
+"""
 
 class Window(QWidget):
     def __init__(self, parent=None):
@@ -33,7 +38,7 @@ class Window(QWidget):
             self.linePATH.setText(path)
             self.log(f'Path set to: {path}')
 
-    def search_text(self, files):
+    def search_text(self, files: List[str]):
         """Searches for all matches of the entered string in the given files
 
         Parameters
@@ -48,8 +53,8 @@ class Window(QWidget):
         if self.checkMATCH.isChecked():
             flag = 0
 
-        content = bytes
-        m_count = 0
+        content     = bytes
+        match_count = 0
         for f in files:
             # check file name
             fname = f[f.rfind('\\'):]
@@ -64,13 +69,13 @@ class Window(QWidget):
                 content = file.read()
 
             matches = len(re.findall(str.encode(search_for), content, flags=flag))
-            m_count += matches
+            match_count += matches
 
             self.log(f'{matches} matches in file: {f}')
 
-        self.log(f'Found "{search_for}" {m_count} times in {len(files)} files.')
+        self.log(f'Found "{search_for}" {match_count} times in {len(files)} files.')
 
-    def replace_text(self, files):
+    def replace_text(self, files: List[str]):
         """Searches and replaces the entered strings in the files.
 
         Parameters
