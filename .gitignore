@@ -1,1 +1,6 @@
 testfiles
+dist
+build
+__pycache__
+rename_qt5.spec
+rename_cmd.spec
