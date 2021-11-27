@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>298</width>
-    <height>411</height>
+    <height>413</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,13 @@
       <string>Parameters</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="checkMATCH">
+        <property name="text">
+         <string>match case</string>
+        </property>
+       </widget>
+      </item>
       <item row="2" column="1">
        <widget class="QCheckBox" name="checkRENAME">
         <property name="text">
@@ -27,8 +34,8 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="lineREPLACE"/>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineSEARCH"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_2">
@@ -37,12 +44,8 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="checkMATCH">
-        <property name="text">
-         <string>match case</string>
-        </property>
-       </widget>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineREPLACE"/>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label">
@@ -51,8 +54,25 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineSEARCH"/>
+      <item row="3" column="0">
+       <widget class="QRadioButton" name="radioOVERWRITE">
+        <property name="text">
+         <string>overwrite files</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QRadioButton" name="radioDUPLICATE">
+        <property name="text">
+         <string>duplicate files</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -66,7 +86,7 @@
       <item row="1" column="0">
        <widget class="QCheckBox" name="checkSUBFOLDERS">
         <property name="text">
-         <string>search subfolders</string>
+         <string>search recursively</string>
         </property>
        </widget>
       </item>
@@ -133,16 +153,6 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="2" colspan="2">
-       <widget class="QRadioButton" name="radioDUPLICATE">
-        <property name="text">
-         <string>duplicate files</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="3">
        <widget class="QCheckBox" name="cTxt">
         <property name="text">
@@ -171,16 +181,6 @@
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string>File Endings:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" colspan="2">
-       <widget class="QRadioButton" name="radioOVERWRITE">
-        <property name="text">
-         <string>overwrite files</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -218,7 +218,9 @@
     <widget class="QPlainTextEdit" name="textLOG">
      <property name="font">
       <font>
+       <family>Consolas</family>
        <pointsize>7</pointsize>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="undoRedoEnabled">
