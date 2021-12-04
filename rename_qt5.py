@@ -1,17 +1,18 @@
-import sys, os, re
-
-from typing import List
-from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QFileDialog, QWidget
-
 """
 Small UI program to (recursively) search a folder for files which fit a certain pattern and replace text in it (also the filename itself).
-"""
 
-class Window(QWidget):
+@Author: Florian W
+"""
+import sys, os, re
+from typing import List
+from PyQt5.QtWidgets import QApplication, QFileDialog, QWidget
+from ui.win import Ui_Window
+
+
+class Window(QWidget, Ui_Window):
     def __init__(self, parent=None):
         super().__init__(parent)
-        uic.loadUi('win.ui', self)
+        self.setupUi(self)
 
         self.linePATH.setText(os.getcwd())
 
