@@ -1,10 +1,11 @@
-import os, re
-
-from typing import List
-
 """
 Small UI program to (recursively) search a folder for files which fit a certain pattern and replace text in it (also the filename itself).
+
+@Author: Florian W
 """
+import os, re
+from typing import List
+
 
 def search_text(files: List[str], search_for: str, ignore_case: bool=True):
     """Searches for all matches of the entered string in the given files
@@ -49,7 +50,6 @@ def replace_text(files: List[str], search_for: str, replace_with: str, ignore_ca
     files : List[str]
         list of paths+filenames of the files to be searched
     """
-
     # check if the case should be matched
     flag = 0
     if ignore_case:
