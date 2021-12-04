@@ -14,7 +14,7 @@ Simple search and replace program as you'll find it in many text editors but wit
 - a command line version
 
 ## How to run
-- Option 1: Download one of the executable version in the respective folder. (Only on x64 Systems with x64 Python, Qt5 Version also requires the file win.ui)
+- Option 1: Download one of the executable version in the respective folder. (Only on x64 Systems with x64 Python)
 
 - Option 2: Clone the repository with
 ```
