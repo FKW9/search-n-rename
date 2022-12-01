@@ -3,14 +3,14 @@
 Simple search and replace program as you'll find it in many text editors but with some special features.
 
 ## Features
-- search only for some file extensions like .csv, .tsv and so on
+- search only for given file extensions like .csv, .tsv and so on
 - search files recursively
 - search and replace text in the filename itself
 - match case or not
 - overwrite or duplicate the files in which the text was found and replaced
 
 ## Versions
-- a Qt5 version with a handy UI
+- a Qt5 GUI version
 - a command line version
 
 ## How to run
